@@ -1,7 +1,7 @@
 const Command = require("../../abstract/Command.js");
 const { utc } = require('moment');
 
-module.exports = class Ping extends Command {
+module.exports = class Stats extends Command {
   constructor(client) {
     super(client, {
       name: "stats",
@@ -23,7 +23,7 @@ module.exports = class Ping extends Command {
 › Users: ${this.client.users.cache.size.toLocaleString()}
 › Creation Date: ${utc(this.client.user.createdAt).format('LL')} (${utc(this.client.user.createdAt, "YYYYMMDD").fromNow()})
 › Uptime: ${this.client.util.formatSeconds(process.uptime())}
-› Memory Usage: ${this.client.util.formatBytes(heapUsed)}/${this.client.util.formatBytes(heapTotal)}
+› Memory Usage: ${this.client.util.formatBytes(process.memoryUsage().heapUsed)}/${this.client.util.formatBytes(process.memoryUsage().heapTotal)}
 \`\`\``   
       }
     });
