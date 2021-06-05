@@ -10,10 +10,7 @@ module.exports = class Ping extends Command {
       });
   }
   
-  async run(msg) {
-    let previousDate = Date.now();
-    const m = await msg.channel.send('Pinging...');
-    
-    m.edit(` Latency: \`${Date.now () - msg.eventTimestamp}ms\`, REST Latency: \`${Date.now() - previousDate}ms\`, Gateway Latency: \`${Math.round(msg.guild.shard.ping)}ms\``);
+  async run(msg) {    
+    msg.channel.send(`REST Latency: \`${Date.now () - msg.eventTimestamp}ms\`, Gateway Latency: \`${Math.round(msg.guild.shard.ping)}ms\``);
   }
 };
