@@ -7,7 +7,7 @@ module.exports = class Ping extends Command {
       description: "Displays all the latenices",
       category: 'Utility',
       aliases: ["pong", "latency"],
-      });
+    });
   }
   
   async run(msg) {    
