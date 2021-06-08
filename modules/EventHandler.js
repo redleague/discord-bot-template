@@ -18,7 +18,7 @@ module.exports = class EventHandler {
         if (Event.prototype instanceof BaseEvent) {
           const event = new Event(this.client);
           this.client.events.set(event.name, event);
-          event.once ?  this.client.once(event.name, event.run.bind(event)) : this.client.on(event.name, event.run.bind(event));
+          event.once ? this.client.once(event.name, event.run.bind(event)) : this.client.on(event.name, event.run.bind(event));
         }
       }
     }
