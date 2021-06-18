@@ -1,4 +1,4 @@
-const { Client } = require('./structures/Client');
+const Client = require('./structures/Client');
 
 const client = new Client();
 
