@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A discord bot",
   "scripts": {
-    "start": "node index.js --trace-warnings"
+    "start": "node app.js --trace-warnings"
   },
   "engines": {
     "node": "12.x"
