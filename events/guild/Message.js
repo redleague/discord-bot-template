@@ -12,13 +12,17 @@ module.exports = class MessageEvent extends AbstractEvent {
     
     if (!msg.channel.permissionsFor(msg.guild.me).has('SEND_MESSAGES')) return;
 
-    msg.eventTimestamp = Date.now();
+    msg.guild.restTimestamp = Date.now();
     
     const mentionRegex = new RegExp(`^<@!?${this.client.user.id}>$`);
     const mentionRegexPrefix = new RegExp(`^<@!?${this.client.user.id}> `);
 
-
-    if (msg.content.match(mentionRegex)) return msg.channel.send(`My prefix for this server is ${this.client.prefix}`);
+    if (msg.content.match(mentionRegex)) return msg.channel.send({embed: {
+      color: this.client.util.color.primary,
+      description: (
+      `Need help? Try using \`${this.client.config.prefix}\``
+      )
+    }});
     
     const prefix = msg.content.match(mentionRegexPrefix) ? msg.content.match(mentionRegexPrefix)[0] : this.client.prefix;
 
@@ -29,17 +33,18 @@ module.exports = class MessageEvent extends AbstractEvent {
     .split(/\s+/);
     
     const command = this.client.fetchCommand(cmdName);
-    if(!command) return;
-
-    try {
-      command.run(msg, cmdArgs);
-    } catch(e) {
-      msg.channel.send({embed: {
-        color: this.client.color.error,
-        description: `${this.client.emoji.error} | Something went wrong!`
-      }});
-      
-      this.client.logger.error(`Something went wrong: \n${e.stack}`)
+    
+    if (command) {
+      try {
+        command.run(msg, cmdArgs);
+      } catch (e) {
+        msg.channel.send({embed: {
+          color: this.client.util.color.error,
+          description: `${this.client.util.emoji.error} | Something went wrong! Try again later`
+        }});
+        
+        this.client.logger.error(`An error has been occured on ${command.name}:\n${e.stack}`);
+      } 
     }
   }
 }
