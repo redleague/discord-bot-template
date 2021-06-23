@@ -63,14 +63,15 @@ module.exports = class Util {
 
   formatBytes(bytes) {
     if (bytes === 0) return '0 Bytes';
-		const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-		const i = Math.floor(Math.log(bytes) / Math.log(1024));
-		return `${parseFloat((bytes / Math.pow(1024, i)).toFixed(2))} ${sizes[i]}`;
-	}
+    
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(1024));
+    return `${parseFloat((bytes / Math.pow(1024, i)).toFixed(2))} ${sizes[i]}`;
+   }
   
   delay(ms) {
-		return new Promise(res => setTimeout(res, ms));
-	}
+     return new Promise(res => setTimeout(res, ms));
+  }
 
   async fetchChannel(channelID) {
     return await this.client.channels.fetch(channelID).catch(() => false);
