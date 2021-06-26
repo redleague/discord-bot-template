@@ -36,7 +36,7 @@ module.exports = class MessageEvent extends AbstractEvent {
     
     if (command) {
       try {
-        command.run(msg, cmdArgs);
+       await command.run(msg, cmdArgs);
       } catch (e) {
         msg.channel.send({embed: {
           color: this.client.util.color.error,
