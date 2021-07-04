@@ -24,7 +24,7 @@ module.exports = class MessageEvent extends AbstractEvent {
       )
     }});
     
-    const prefix = msg.content.match(mentionRegexPrefix) ? msg.content.match(mentionRegexPrefix)[0] : this.client.prefix;
+    const prefix = msg.content.match(mentionRegexPrefix) ? msg.content.match(mentionRegexPrefix)[0] : this.client.config.prefix;
 
     if (!msg.content.startsWith(prefix)) return;
     const [cmdName, ...cmdArgs] = msg.content
