@@ -3,7 +3,7 @@
 
 # About
 
-An open-source discord-bot template music
+An open-source discord-bot template
 
 # Features 
 
