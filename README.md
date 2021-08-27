@@ -3,16 +3,17 @@
 
 # About
 
-An open-source discord-bot template
+An open-source discord-bot template which used Discord.js v13
 
 # Features 
 
 > ✅ Easy-to-use <br>
-> ✅ Stable
+> ✅ Stable <br>
+> ✅ Slash Commands <br>
+> ✅ Open Source
 
 # Installation
-Recommended version Node.js 14
-Node.js 12, is also supported.
+Recommended version Node.js 16.6.x
 
 To install all the packages just use:
 

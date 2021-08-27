@@ -39,11 +39,6 @@ module.exports = class Util {
   random(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   }
-  
-  getBytes(bytes) {
-    const i = Math.floor(Math.log(bytes) / Math.log(1024));
-    return (!bytes && "0 Bytes") || `${(bytes / Math.pow(1024, i)).toFixed(2)} ${suffixes[i]}`;
-  }
 
   escapeRegex(str) {
     return str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
@@ -71,9 +66,5 @@ module.exports = class Util {
   
   delay(ms) {
      return new Promise(res => setTimeout(res, ms));
-  }
-
-  async fetchChannel(channelID) {
-    return await this.client.channels.fetch(channelID).catch(() => false);
   }
 };

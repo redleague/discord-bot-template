@@ -6,15 +6,19 @@
     "start": "node app.js"
   },
   "engines": {
-    "node": "12.x"
+    "node": ">=16.6.x",
+    "npm": ">=7.x.x"
   },
   "author": "hydrox19 (Rajat Mishra)",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
-    "discord.js": "12.5.3"
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.23.0"
+    "eslint": "^7.23.0",
+    "node": "^16.6.1",
+    "npm": "^7.21.1"
   }
 }
