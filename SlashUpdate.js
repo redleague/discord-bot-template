@@ -5,9 +5,10 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { readdirSync } = require('fs');
-const { token } = require('./config.js');
+const { token, dev } = require('./config.js');
 
-const dev = true;
+const clientId = "YOUR_BOT_ID";
+const guildId = "YOUR_SERVER_ID"
 
 console.log('• Loading the commands to refresh');
 // the current amount of commands to refresh
@@ -29,15 +30,15 @@ const rest = new REST({ version: '9' }).setToken(token);
 // start the load up process
 (async () => {
   try {
-    console.log(`• Refreshing client "862573521007542312" slash commands. Developer Mode? ${dev}`);
-    if (true) {
+    console.log(`• Refreshing client "${guildId}" slash commands. Developer Mode? ${dev}`);
+    if (dev) {
       // if dev mode is enabled, refresh commands on guild basis on the id of the guild you provided
-      await rest.put(Routes.applicationGuildCommands("862573521007542312", "508569508932354048"), { body: commands });
+      await rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands });
     } else {
       // else refresh globally
-      await rest.put(Routes.applicationCommands("862573521007542312"), { body: commands });
+      await rest.put(Routes.applicationCommands(clientId), { body: commands });
     }
-    console.log(`• Success! Refreshed client "862573521007542312" slash commands`);
+    console.log(`• Success! Refreshed client "${clientId}" slash commands`);
   } catch (error) {
     console.error(error);
   }

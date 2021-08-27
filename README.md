@@ -22,9 +22,15 @@ npm install
 ```
 # Run
 
-```bash
-node app.js
-```
+> For updating the slash commands
+> ```bash
+> node SlashUpdate.js
+> ```
+
+> For running the bot
+> ```bash
+> node app.js 
+> ```
 
 # Note
 
