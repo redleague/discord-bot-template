@@ -22,6 +22,9 @@ export class EventManager {
             .catch(err => this.client.logger.error(CustomError("EVENTS_LOADER_ERR:", err)));
     }
 
+    /**
+     * @private
+     */
     async import(path, ...args) {
         const file = (await import(resolve(path)).then(m => m[parse(path).name]));
         return file ? new file(...args) : undefined;
