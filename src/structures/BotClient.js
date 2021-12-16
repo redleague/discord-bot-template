@@ -1,5 +1,5 @@
 import { Client } from "discord.js";
-import config from "../../config";
+import { config } from "../../config";
 
 export class BotClient extends Client {
     constructor(options) {
