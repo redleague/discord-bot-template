@@ -32,7 +32,7 @@ export class CommandManager extends Collection {
                                         .catch(() => this.client.logger.info(`Missing access on ${guild} [SLASH_COMMAND]`));
                                     }
                                 } else {
-                                    await this.client.application.commands.create(command.meta.slash)
+                                    await this.client.application.commands.create(command.meta.slash);
                                 }
                             }
                         }
