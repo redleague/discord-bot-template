@@ -1,13 +1,15 @@
 {
     "name": "discord-bot-template",
     "version": "2.0.0",
+    "type": "module",
     "description": "An open-source discord bot template",
     "scripts": {
         "start": "node index.js",
         "lint": "eslint ."
     },
     "eslintConfig": {
-        "extends": "@hazmi35/eslint-config"
+        "extends": "@hazmi35/eslint-config",
+        "sourceType": "module"
     },
     "engines": {
         "node": ">=16.6.x",
