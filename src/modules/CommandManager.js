@@ -14,7 +14,14 @@ export class CommandManager extends Collection {
         fs.readdir(resolve(this.path))
             .then(async categories => {
                 for (const category of categories) {
-                    
+                    await fs.readdir(resolve(this.path, category))
+                    .then(async files => {
+                        const allCmd = await this.client.application.commands.fetch();
+                        for (const file of files) {
+                            const path = resolve(this.path, category, file);
+                            const command = await this.import()
+                        }
+                    });
                 }
             });
     } 
