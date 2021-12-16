@@ -9,5 +9,13 @@ export class CommandManager extends Collection {
         this.path = path;
         this.cooldowns = new Collection();
     }
-    
+
+    load() {
+        fs.readdir(resolve(this.path))
+            .then(async categories => {
+                for (const category of categories) {
+                    
+                }
+            });
+    } 
 }
