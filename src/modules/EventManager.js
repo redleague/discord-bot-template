@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import { parse, resolve } from "path";
 import { CustomError } from "../utils/CustomError";
 
-export class EventsLoader {
+export class EventManager {
     constructor(client, emitter, path) {
         this.client = client;
         this.emitter = emitter;
