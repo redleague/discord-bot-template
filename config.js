@@ -1,3 +1,3 @@
-const config = {
+export const config = {
     token: ""
 }
