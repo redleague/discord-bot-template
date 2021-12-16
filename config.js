@@ -1,3 +1,5 @@
 export const config = {
-    token: ""
+    token: "",
+    isDev: true,
+    devGuilds: []
 }
