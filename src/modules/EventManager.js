@@ -9,7 +9,7 @@ export class EventManager {
         this.path = path;
     }
 
-    async load() {
+    load() {
         fs.readdir(resolve(this.path))
             .then(async events => {
                 events = events.filter(x => x.endsWith(".js"));
@@ -19,7 +19,7 @@ export class EventManager {
                     this.emitter.on(event.name, (...args) => event.execute(...args));
                 }
             })
-            .catch(err => console.error(CustomError("EVENTS_LOADER_ERR:", err)));
+            .catch(err => this.client.logger.error(CustomError("EVENTS_LOADER_ERR:", err)));
     }
 
     async import(path, ...args) {
