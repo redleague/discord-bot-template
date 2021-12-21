@@ -1,7 +1,7 @@
 /**
- * 
- * @param {string} name 
- * @param {string|undefined} message 
+ *
+ * @param {string} name
+ * @param {string|undefined} message
  * @returns Error
  */
 

@@ -1,17 +1,21 @@
+/* eslint-disable no-undef */
 import { Client } from "discord.js";
-import { config } from "../../config";
-import { createLogger } from "../modules/Logger";
-import { CommandManager } from "../modules/CommandManager";
-import { EventManager } from "../modules/EventManager";
+import { resolve } from "path";
+import { config } from "../config.js";
+import { Logger } from "../modules/Logger.js";
+import { CommandManager } from "../modules/CommandManager.js";
+import { EventManager } from "../modules/EventManager.js";
 
 export class BotClient extends Client {
     constructor(options) {
         super(options);
 
         this.config = config;
-        this.logger = createLogger("main", "en-US", "shard", this.shard?.ids[0], this.config.isDev);
-        this.commands = new CommandManager(this, resolve(__dirname, "..", "commands"));
-        this.events = new EventManager(this, this, resolve(__dirname, "..", "events"));
+        this.cwd = process.cwd();
+        this.logger = new Logger();
+
+        this.commands = new CommandManager(this, resolve(this.cwd, "src", "commands"));
+        this.events = new EventManager(this, this, resolve(this.cwd, "src", "listeners"));
     }
 
     async build() {

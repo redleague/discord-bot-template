@@ -3,6 +3,4 @@ export class BaseEvent {
         this.client = client;
         this.name = name;
     }
-
-    execute(...args) {}
 }

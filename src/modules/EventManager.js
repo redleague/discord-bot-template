@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import { parse, resolve } from "path";
-import { CustomError } from "../utils/CustomError";
+import { pathToFileURL } from "url";
+import { CustomError } from "../utils/CustomError.js";
 
 export class EventManager {
     constructor(client, emitter, path) {
@@ -26,7 +27,7 @@ export class EventManager {
      * @private
      */
     async import(path, ...args) {
-        const file = (await import(resolve(path)).then(m => m[parse(path).name]));
+        const file = (await import(pathToFileURL(path)).then(m => m[parse(path).name]));
         return file ? new file(...args) : undefined;
     }
 }

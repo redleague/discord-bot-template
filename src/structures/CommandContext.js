@@ -20,6 +20,6 @@ export class CommandContext {
     }
 
     send(options) {
-        return this.context.editReply(options)
+        return this.context.editReply(options);
     }
 }

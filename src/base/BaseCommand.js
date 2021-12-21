@@ -3,6 +3,4 @@ export class BaseCommand {
         this.client = client;
         this.meta = meta;
     }
-
-    execute(ctx, ...args) {}
 }

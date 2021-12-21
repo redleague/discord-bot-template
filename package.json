@@ -4,12 +4,16 @@
     "type": "module",
     "description": "An open-source discord bot template",
     "scripts": {
-        "start": "node index.js",
-        "lint": "eslint ."
+        "start": "node src/index.js",
+        "start:dev": "npm run lint && npm run start",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
     },
     "eslintConfig": {
         "extends": "@hazmi35/eslint-config",
-        "sourceType": "module"
+        "parserOptions": {
+            "sourceType": "module"
+        }
     },
     "engines": {
         "node": ">=16.6.x",
@@ -18,7 +22,8 @@
     "author": "Rajat Mishra",
     "license": "MIT",
     "dependencies": {
-        "discord.js": "^13.3.1"
+        "discord.js": "^13.3.1",
+        "dotenv": "^10.0.0"
     },
     "devDependencies": {
         "@hazmi35/eslint-config": "^7.0.1",
