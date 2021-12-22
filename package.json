@@ -4,8 +4,8 @@
     "type": "module",
     "description": "An open-source discord bot template",
     "scripts": {
-        "start": "node src/index.js",
-        "start:dev": "npm run lint && npm run start",
+        "app": "node src/index.js",
+        "start": "npm run lint && npm run app",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix"
     },

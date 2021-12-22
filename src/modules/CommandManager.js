@@ -17,12 +17,10 @@ export class CommandManager extends Collection {
         fs.readdir(resolve(this.path))
             .then(async categories => {
                 for (const category of categories) {
-                    categoryRuns++;
                     await fs.readdir(resolve(this.path, category))
                         .then(async files => {
                             const allCmd = await this.client.application.commands.fetch().catch(() => this.client.logger.info(new CustomError("GLOBAL_SLASH_FETCH", "An error occured while fetching slash comamnds")));
                             for (const file of files) {
-                                filesRun++;
                                 const path = resolve(this.path, category, file);
                                 const command = await this.import(path, this.client, { category, path });
                                 if (command === undefined) throw new Error(`Command: ${file} is not a valid command`);

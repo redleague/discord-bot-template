@@ -1,4 +1,5 @@
 import { BaseCommand } from "../../base/BaseCommand.js";
+import { makeEmbed } from "../../utils/makeEmbed.js";
 
 export class PingCommand extends BaseCommand {
     constructor(client) {
@@ -11,6 +12,10 @@ export class PingCommand extends BaseCommand {
     }
 
     async execute(ctx) {
-        ctx.send(`My ping is ${this.client.ws.ping}`);
+        ctx.send({
+            embeds: [
+                makeEmbed("info", `\`\`\`REST Latency: ${Date.now() - ctx.guild.restTimestamp}ms\nWS Latency: ${this.client.ws.ping}\`\`\``).setThumbnail(this.client.user.avatarURL({ size: 4096 }))
+            ]
+        });
     }
 }
