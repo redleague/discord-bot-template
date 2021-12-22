@@ -7,7 +7,8 @@ export class PingCommand extends BaseCommand {
             slash: {
                 name: "ping",
                 description: "gives the ping of the bot"
-            }
+            },
+            category: "General"
         });
     }
 
