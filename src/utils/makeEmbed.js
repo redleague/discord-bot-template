@@ -1,11 +1,11 @@
 import { MessageEmbed } from "discord.js";
 
-const hexColors = {
+const hexColors = Object.freeze({
     error: "RED",
     info: "BLUE",
     success: "GREEN",
     warn: "YELLOW"
-};
+});
 
 export function makeEmbed(type, message) {
     const embed = new MessageEmbed()
