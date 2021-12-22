@@ -19,6 +19,10 @@ export class CommandContext {
         return this.context.guild;
     }
 
+    get options() {
+        return this.context.options;
+    }
+
     send(options) {
         return this.context.editReply(options);
     }
