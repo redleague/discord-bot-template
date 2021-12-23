@@ -10,17 +10,14 @@ export class EventManager {
         this.path = path;
     }
 
-    load() {
-        fs.readdir(resolve(this.path))
-            .then(async events => {
-                events = events.filter(x => x.endsWith(".js"));
-                for (const file of events) {
-                    const event = await this.import(resolve(this.path, file), this.client);
-                    if (event === undefined) throw new Error(`EVENT: ${file} is not a valid event file`);
-                    this.emitter.on(event.name, (...args) => event.execute(...args));
-                }
-            })
-            .catch(err => this.client.logger.error(customError("EVENTS_LOADER_ERR:", err)));
+    async load() {
+        const files = await fs.readdir(resolve(this.path)).catch(err => this.client.logger.error(customError("EVENTS_LOADER_ERR:", err)));
+        for (const file of files.filter(x => x.endsWith(".js"))) {
+            const event = await this.import(resolve(this.path, file), this.client);
+            if (event === undefined) throw new Error(`EVENT: ${file} is not a valid event file`);
+            this.emitter.on(event.name, (...args) => event.execute(...args));
+        }
+        this.client.logger.log("EVENT_LOAD", `Loaded all events in ${this.emitter.constructor.name} emitter`);
     }
 
     /**
