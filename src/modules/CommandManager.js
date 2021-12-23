@@ -2,7 +2,7 @@
 import { promises as fs } from "fs";
 import { parse, resolve } from "path";
 import { Collection } from "discord.js";
-import { CustomError } from "../utils/CustomError.js";
+import { CustomError } from "../utils/customError.js";
 import { pathToFileURL } from "url";
 
 export class CommandManager extends Collection {
@@ -17,7 +17,7 @@ export class CommandManager extends Collection {
         const categories = await fs.readdir(resolve(this.path)).catch(err => this.client.logger.error(CustomError("CATEGORY_LOADER_ERR:", err)));
         for (const category of categories) {
             const files = await fs.readdir(resolve(this.path, category)).catch(err => this.client.logger.error(CustomError("CMD_LOADER_ERR:", err)));
-            const allCmd = await this.client.application.commands.fetch().catch(() => this.client.logger.info(new CustomError("GLOBAL_SLASH_FETCH", "An error occured while fetching slash comamnds")));
+            const allCmd = await this.client.application.commands.fetch().catch(() => this.client.logger.info(CustomError("GLOBAL_SLASH_FETCH", "An error occured while fetching slash comamnds")));
             for (const file of files) {
                 const path = resolve(this.path, category, file);
                 const command = await this.import(path, this.client, { category, path });
