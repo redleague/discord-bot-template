@@ -15,7 +15,7 @@ export class PingCommand extends BaseCommand {
     async execute(ctx) {
         ctx.send({
             embeds: [
-                makeEmbed("info", `\`\`\`REST Latency: ${Date.now() - ctx.guild.restTimestamp}ms\nWS Latency: ${this.client.ws.ping}ms\`\`\``).setThumbnail(this.client.user.avatarURL({ size: 4096 }))
+                makeEmbed("info", `\`\`\`REST Latency: ${Date.now() - ctx.guild.restTimestamp}ms\nWS Latency: ${this.client.ws.ping}ms\`\`\``).setThumbnail(this.client.user.avatarURL({ size: 4096 })).setFooter(`Requested by ${ctx.author.tag}`)
             ]
         });
     }
