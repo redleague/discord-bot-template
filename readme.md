@@ -15,23 +15,14 @@ An open-source discord-bot template which used Discord.js v13
 # Installation
 Recommended version Node.js 16.6.x
 
-To install all the packages just use:
-
-```bash
-npm install
-```
+> To install all the packages just use:
+> ```bash
+> npm install
+> ```
 # Run
 
-> For updating the slash commands
+> Note: Make sure to rename the .env_example file to .env and fill up the credentials
+> For running the bot:
 > ```bash
-> node SlashUpdate.js
+> npm run start
 > ```
-
-> For running the bot
-> ```bash
-> node app.js 
-> ```
-
-# Note
-
-Some parts of the code has been taken from [Kongou](https://github.com/Deivu/Kongou)
