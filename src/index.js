@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import "dotenv/config";
 import { BotClient } from "./structures/BotClient.js";
 import { customError } from "./utils/CustomError.js";

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { promises as fs } from "fs";
 import { parse, resolve } from "path";
 import { Collection } from "discord.js";

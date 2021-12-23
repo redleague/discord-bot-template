@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { Client } from "discord.js";
 import { resolve } from "path";
 import { config } from "../config.js";
