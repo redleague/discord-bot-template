@@ -10,7 +10,7 @@
         "lint:fix": "eslint . --fix"
     },
     "eslintConfig": {
-        "extends": "@hazmi35/eslint-config",
+        "extends": "@hazmi35/eslint-config/node",
         "parserOptions": {
             "sourceType": "module"
         }

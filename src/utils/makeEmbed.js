@@ -2,7 +2,7 @@ import { MessageEmbed } from "discord.js";
 
 const hexColors = Object.freeze({
     error: "RED",
-    info: "BLUE",
+    info: "BLURPLE",
     success: "GREEN",
     warn: "YELLOW"
 });
