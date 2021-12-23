@@ -19,8 +19,8 @@ export class BotClient extends Client {
     }
 
     async build() {
-        this.events.load();
-        this.on("ready", () => this.commands.load());
+        await this.events.load();
+        this.on("ready", async () => this.commands.load());
         await this.login(this.config.token);
         return this;
     }
