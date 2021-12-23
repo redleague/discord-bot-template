@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import { parse, resolve } from "path";
 import { pathToFileURL } from "url";
-import { CustomError } from "../utils/CustomError.js";
+import { customError } from "../utils/customError.js";
 
 export class EventManager {
     constructor(client, emitter, path) {
@@ -20,7 +20,7 @@ export class EventManager {
                     this.emitter.on(event.name, (...args) => event.execute(...args));
                 }
             })
-            .catch(err => this.client.logger.error(CustomError("EVENTS_LOADER_ERR:", err)));
+            .catch(err => this.client.logger.error(customError("EVENTS_LOADER_ERR:", err)));
     }
 
     /**

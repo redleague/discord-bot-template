@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import "dotenv/config";
 import { BotClient } from "./structures/BotClient.js";
-import { CustomError } from "./utils/CustomError.js";
+import { customError } from "./utils/CustomError.js";
 import { Intents } from "discord.js";
 
 const clientOptions = {
@@ -17,7 +17,7 @@ process.on("unhandledRejection", e => {
     if (e instanceof Error) {
         client.logger.error(e);
     } else {
-        client.logger.error(CustomError("PromiseError"));
+        client.logger.error(customError("PromiseError"));
     }
 });
 
