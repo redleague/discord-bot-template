@@ -22,7 +22,7 @@
     "author": "Rajat Mishra",
     "license": "MIT",
     "dependencies": {
-        "discord.js": "^13.3.1",
+        "discord.js": "^13.4.0",
         "dotenv": "^10.0.0"
     },
     "devDependencies": {
