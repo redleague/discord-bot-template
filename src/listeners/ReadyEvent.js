@@ -6,6 +6,6 @@ export class ReadyEvent extends BaseEvent {
     }
 
     async execute() {
-        this.client.logger.info(`${this.client.user.tag} is online on ${this.client.guilds.cache.size}`);
+        this.client.logger.info(`${this.client.user.tag} is online on ${this.client.guilds.cache.size} guilds`);
     }
 }
