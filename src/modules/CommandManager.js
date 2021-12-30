@@ -20,7 +20,7 @@ export class CommandManager extends Collection {
             for (const file of files) {
                 const path = resolve(this.path, category, file);
                 const command = await this.import(path, this.client, { category, path });
-                if (command === undefined) throw new Error(`Command: ${file} is not a valid command`);
+                if (command === undefined) this.client.logger.error(customError("INVALID_COMMAND", `Command: ${file} is not a valid command`));
                 command.meta = Object.assign(command.meta, { path, category });
                 this.set(command.meta.slash.name, command);
                 if (!allCmd.find(c => c.name !== command.meta.slash.name)) {
