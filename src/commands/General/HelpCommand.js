@@ -27,7 +27,7 @@ export class HelpCommand extends BaseCommand {
         if (command) {
             const infoEmbed = new MessageEmbed()
                 .setColor("BLURPLE")
-                .setAuthor(`${this.client.user.username} - Information about ${command.meta.slash.name} command`, this.client.user?.displayAvatarURL())
+                .setAuthor({ name: `${this.client.user.username} - Information about ${command.meta.slash.name} command`, iconURL: this.client.user?.displayAvatarURL() })
                 .addField("Name", `\`\`\`${command.meta.slash.name}\`\`\``)
                 .addField("Description", `\`\`\`${command.meta.slash.description}\`\`\``)
                 .addField("Category", `\`\`\`${command.meta.category}\`\`\``);
