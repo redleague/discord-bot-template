@@ -43,7 +43,7 @@ export class HelpCommand extends BaseCommand {
             .setColor("BLURPLE")
             .setTitle(`${this.client.user.username} | Help Menu`)
             .setThumbnail(this.client.user?.displayAvatarURL())
-            .setFooter(`Requested by ${ctx.author.tag}`, ctx.author.avatarURL({ size: 4096, dynamic: true }));
+            .setFooter({ text: `Requested by ${ctx.author.tag}`, iconURL: ctx.author.avatarURL({ size: 4096, dynamic: true }) });
 
         for (const category of categories) embed.addField(category, this.client.commands.filter(c => c.meta.category === category).map(c => `\`${c.meta.slash.name}\``).join(", "), true);
 
