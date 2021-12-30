@@ -21,7 +21,7 @@ export class HelpCommand extends BaseCommand {
     }
 
     async execute(ctx) {
-        const value = ctx.context.options.getString("command");
+        const value = ctx.options.getString("command");
         const command = this.client.commands.get(value);
 
         if (command) {
