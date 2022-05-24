@@ -1,0 +1,11 @@
+# Node dependencies
+node_modules/
+
+# lockfile
+package-lock.json
+
+# Typescript output files
+build/
+
+# Enviornment variable
+.env
