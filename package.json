@@ -26,7 +26,7 @@
         "dotenv": "^10.0.0"
     },
     "devDependencies": {
-        "@hazmi35/eslint-config": "^7.0.1",
+        "@hazmi35/eslint-config": "^8.7.1",
         "eslint": "^8.2.0",
         "eslint-plugin-import": "^2.25.2"
     }
